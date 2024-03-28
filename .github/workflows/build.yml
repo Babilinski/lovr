@@ -1,6 +1,13 @@
 name: Build
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - dev  # Adjust branch name if needed
+  pull_request:
+    branches:
+      - dev  # Adjust branch name if needed
+  workflow_dispatch:  # This enables manual triggering
 
 env:
   CMAKE_BUILD_TYPE: ${{ github.event_name == 'pull_request' && 'Debug' || 'Release' }}
